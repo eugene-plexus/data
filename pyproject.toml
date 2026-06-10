@@ -12,7 +12,7 @@ requires-python = ">=3.12"
 authors = [
     { name = "Eugene Plexus contributors" },
 ]
-keywords = ["eugene-plexus", "data", "fastapi", "consciousness"]
+keywords = ["eugene-plexus", "data", "fastapi", "llm", "training"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Framework :: FastAPI",
