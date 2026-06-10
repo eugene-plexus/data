@@ -29,6 +29,11 @@ dependencies = [
     "pydantic-settings>=2.6,<3",
     "pyyaml>=6.0,<7",
     "pyjwt>=2.9,<3",
+    # Data-preparation engine. Torch-free by design: tokenization and Arrow
+    # I/O don't need it, and the torch dataloader lives in `trainer`.
+    "tokenizers>=0.21,<1",     # byte-level BPE training
+    "pyarrow>=18,<22",         # memory-mapped Arrow IPC shards + parquet import
+    "datasets>=3.2,<5",        # HuggingFace Hub import
 ]
 
 [project.optional-dependencies]
@@ -108,6 +113,11 @@ exclude = [
 [[tool.mypy.overrides]]
 module = "eugene_plexus_data._generated.*"
 ignore_errors = true
+
+# pyarrow and datasets ship no type stubs / py.typed marker.
+[[tool.mypy.overrides]]
+module = ["pyarrow.*", "datasets.*"]
+ignore_missing_imports = true
 
 # -----------------------------------------------------------------------------
 # Pytest
