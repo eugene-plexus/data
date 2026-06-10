@@ -32,19 +32,19 @@ dependencies = [
     # Data-preparation engine. Torch-free by design: tokenization and Arrow
     # I/O don't need it, and the torch dataloader lives in `trainer`.
     "tokenizers>=0.21,<1",     # byte-level BPE training
-    "pyarrow>=18,<22",         # memory-mapped Arrow IPC shards + parquet import
-    "datasets>=3.2,<5",        # HuggingFace Hub import
+    "pyarrow>=18,<25",         # memory-mapped Arrow IPC shards + parquet import
+    "datasets>=3.2,<6",        # HuggingFace Hub import
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest==8.4.2",
-    "pytest-asyncio==0.26.0",
+    "pytest==9.0.3",
+    "pytest-asyncio==1.4.0",
     "httpx>=0.27,<1",          # for FastAPI test client
-    "ruff==0.15.14",
-    "mypy==1.20.2",
+    "ruff==0.15.16",
+    "mypy==2.1.0",
     "types-pyyaml>=6,<7",
-    "datamodel-code-generator==0.57.0",
+    "datamodel-code-generator==0.62.0",
 ]
 
 [project.scripts]
